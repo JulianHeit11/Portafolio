@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 Mi Portfolio Personal
 
 ¡Hola! 👋 Soy **Fausto**, estudiante de la **Tecnicatura en Programación (UTN Bahía Blanca)** y este es mi **portfolio personal**, donde presento algunos de mis proyectos, habilidades y tecnologías que utilizo.
@@ -86,3 +87,6 @@ Próximamente disponible online 🚧
 ---
 
 ⭐ Si te gustó este proyecto, ¡no dudes en dejar una estrella!
+=======
+# PortafolioPato
+>>>>>>> aa19c8bd177833659dcc0d8bdaf8bad144bd6379
