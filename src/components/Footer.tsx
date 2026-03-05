@@ -7,16 +7,16 @@ import {
 export default function Footer() {
   const quickLinks = [
     { href: "#home", label: "Inicio" },
-    { href: "#sobre-mi", label: "Sobre Mí" },
+    { href: "#about", label: "Sobre Mí" },
     { href: "#proyectos", label: "Experiencias" },
     { href: "#skills", label: "Formación" },
     { href: "#contenido", label: "Contenido" },
   ];
 
   const socialLinks = [
-    { href: "https://www.linkedin.com/in/julian-heit", icon: Linkedin, label: "LinkedIn", color: "hover:text-blue-400" },
-    { href: "https://instagram.com/julianheitgc", icon: Instagram, label: "Instagram", color: "hover:text-pink-400" },
-    { href: "mailto:tu-email@ejemplo.com", icon: Mail, label: "Email", color: "hover:text-red-400" },
+    { href: "https://www.linkedin.com/in/julian-heit-/", icon: Linkedin, label: "LinkedIn", color: "hover:text-blue-400" },
+    { href: "https://www.instagram.com/julianheitgc/", icon: Instagram, label: "Instagram", color: "hover:text-pink-400" },
+    { href: "mailto:julianheitgc@gmail.com", icon: Mail, label: "Email", color: "hover:text-red-400" },
   ];
 
   const currentYear = new Date().getFullYear();

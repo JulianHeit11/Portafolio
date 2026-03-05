@@ -60,9 +60,9 @@ export default function Navbar() {
   ];
 
   const socialLinks = [
-    { href: "https://instagram.com/tuusuario", icon: Instagram },
-    { href: "https://tiktok.com/@tuusuario", icon: Music2 },
-    { href: "https://linkedin.com/in/tuusuario", icon: Linkedin },
+    { href: "https://www.instagram.com/julianheitgc/", icon: Instagram },
+    { href: "https://www.tiktok.com/@juli.heit12", icon: Music2 },
+    { href: "https://www.linkedin.com/in/julian-heit-/", icon: Linkedin },
   ];
 
   return (
@@ -86,17 +86,17 @@ export default function Navbar() {
           transition-colors duration-300
           ${
             scrolled
-              ? "bg-[#163863]/85 dark:bg-[#0a192f]/85 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/20"
+              ? "bg-[#1C4E80]/85 dark:bg-[#00396E]/85 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/20"
               : "bg-transparent"
           }
         `}
       >
-        {/* LOGO */}
+        {/* LOGO con punto Amarillo #FFC661 */}
         <a
           href="#home"
           className="text-base md:text-lg font-bold tracking-[0.2em] uppercase text-white"
         >
-          JULIAN<span className="text-[#84cc54]">.</span>
+          JULIAN<span className="text-[#FFC661]">.</span>
         </a>
 
         {/* DESKTOP LINKS */}
@@ -107,12 +107,12 @@ export default function Navbar() {
               href={link.href}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="relative px-3 py-1.5 text-[11px] lg:text-xs font-semibold tracking-[0.15em] text-white/80 transition-colors hover:text-white"
+              className="relative px-3 py-1.5 text-[11px] lg:text-xs font-semibold tracking-[0.15em] text-white/80 transition-colors hover:text-[#FFC661]"
             >
               {hoveredIndex === index && (
                 <motion.span
                   layoutId="nav-hover"
-                  className="absolute inset-0 bg-white/10 rounded-full -z-10"
+                  className="absolute inset-0 bg-[#FFC661]/10 rounded-full -z-10"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
                 />
               )}
@@ -123,7 +123,7 @@ export default function Navbar() {
 
         {/* ACTIONS */}
         <div className="flex items-center gap-2 md:gap-3">
-          {/* SOCIAL ICONS DESKTOP */}
+          {/* SOCIAL ICONS DESKTOP con hover Amarillo #FFC661 */}
           <div className="hidden md:flex items-center gap-2 mr-2">
             {socialLinks.map((social, index) => {
               const Icon = social.icon;
@@ -133,7 +133,7 @@ export default function Navbar() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full text-white/60 hover:text-white hover:scale-110 hover:bg-[#84cc54]/20 transition-all duration-300"
+                  className="p-2 rounded-full text-white/60 hover:text-[#FFC661] hover:scale-110 hover:bg-[#FFC661]/10 transition-all duration-300"
                 >
                   <Icon size={16} />
                 </a>
@@ -145,7 +145,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={toggleTheme}
-            className="p-1.5 md:p-2 rounded-full text-white/80 hover:bg-white/10 hover:text-white transition-colors"
+            className="p-1.5 md:p-2 rounded-full text-white/80 hover:bg-[#FFC661]/10 hover:text-[#FFC661] transition-colors"
           >
             <motion.div
               initial={false}
@@ -177,7 +177,7 @@ export default function Navbar() {
             className="
               absolute top-full left-0 right-0 mt-3 mx-4
               p-5 rounded-2xl
-              bg-[#163863]/95 dark:bg-[#0a192f]/95 backdrop-blur-xl
+              bg-[#1C4E80]/95 dark:bg-[#00396E]/95 backdrop-blur-xl
               border border-white/10
               shadow-2xl flex flex-col items-center gap-3
               md:hidden
@@ -188,7 +188,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="w-full text-center py-2 text-white/80 hover:text-[#84cc54] tracking-widest uppercase font-semibold text-xs border-b border-white/10 last:border-0 transition-colors"
+                className="w-full text-center py-2 text-white/80 hover:text-[#FFC661] tracking-widest uppercase font-semibold text-xs border-b border-white/10 last:border-0 transition-colors"
               >
                 {link.label}
               </a>
@@ -204,7 +204,7 @@ export default function Navbar() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full text-white/60 hover:text-white hover:scale-110 transition-all duration-300"
+                    className="p-2 rounded-full text-white/60 hover:text-[#FFC661] hover:scale-110 transition-all duration-300"
                   >
                     <Icon size={18} />
                   </a>

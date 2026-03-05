@@ -20,107 +20,109 @@ export default function Skills() {
 
   return (
     <section
-      className="relative min-h-screen py-32 px-10 overflow-hidden 
-                 bg-[#eef1f4] dark:bg-[#0f172a] 
-                 transition-colors duration-500"
+      id="skills"
+      className="relative min-h-screen w-full py-20 px-6 lg:px-16 overflow-hidden 
+                 flex items-center transition-colors duration-500"
     >
-      {/* Fondo decorativo */}
-      <div className="absolute inset-0 pointer-events-none opacity-10 dark:opacity-5">
-        <div className="absolute top-10 right-20 w-96 h-96 bg-white dark:bg-slate-800 rounded-3xl rotate-12 shadow-lg" />
-        <div className="absolute bottom-20 left-10 w-[420px] h-[420px] bg-white dark:bg-slate-800 rounded-3xl -rotate-12 shadow-lg" />
-        <div className="absolute top-1/3 left-1/2 w-80 h-80 bg-white dark:bg-slate-800 rounded-3xl rotate-6 shadow-md" />
+      {/* ===== IMAGEN DE FONDO ===== */}
+      <div className="absolute inset-0">
+        {/* Imagen */}
+        <div className="absolute inset-0 bg-[url('/fondo4.jpg')] bg-cover bg-center bg-no-repeat"></div>
+
+        {/* Overlay claro / oscuro automático */}
+        <div className="absolute inset-0 bg-white/85 dark:bg-[#0f172a]/90"></div>
       </div>
 
-      <div className="max-w-[1600px] mx-auto flex gap-24 relative z-10">
+      {/* Fondo decorativo blur */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 dark:opacity-10">
+        <div className="absolute top-10 left-10 w-64 h-64 bg-blue-100 dark:bg-slate-800 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-50 dark:bg-slate-900 rounded-full blur-3xl" />
+      </div>
 
-        {/* TÍTULO VERTICAL MÁS GRANDE */}
-        <div className="hidden lg:flex items-center">
+      <div className="w-full max-w-[1800px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
+        
+        {/* TÍTULO VERTICAL */}
+        <div className="hidden lg:flex items-center h-full">
           <h2
-            className="text-[#2c5a86] dark:text-blue-400 
-                       font-extrabold text-[160px] xl:text-[200px]
-                       tracking-tight uppercase leading-none 
+            className="text-[#114376] dark:text-blue-500 
+                       font-black text-[10vw] xl:text-[180px]
+                       tracking-tighter uppercase leading-[0.8] 
                        [writing-mode:vertical-lr] rotate-180
-                       transition-colors duration-500"
+                       transition-colors duration-500 select-none"
           >
             FORMACIÓN
           </h2>
         </div>
 
-        <div className="flex-1">
-
-          {/* Layout principal más amplio */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 items-center">
-
-            {/* IZQUIERDA */}
-            <div className="space-y-8">
-              {leftColumn.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                  className="bg-[#2c5a86] dark:bg-slate-800 
-                             text-white 
-                             py-6 px-10 
-                             rounded-full 
-                             text-center 
-                             text-lg
-                             font-medium 
-                             shadow-lg 
-                             hover:scale-105 
-                             transition-all duration-300"
-                >
-                  {skill.name}
-                </motion.div>
-              ))}
-            </div>
-
-            {/* CENTRO IMÁGENES MÁS GRANDES */}
-            <div className="relative hidden lg:flex justify-center items-center h-[550px]">
-              <img
-                src="/perfil.jpg"
-                className="w-52 h-72 object-cover rounded-xl shadow-2xl absolute -top-10 rotate-3"
-                alt=""
-              />
-              <img
-                src="/perfil.jpg"
-                className="w-52 h-72 object-cover rounded-xl shadow-2xl rotate-[-3deg]"
-                alt=""
-              />
-              <img
-                src="/perfil.jpg"
-                className="w-52 h-72 object-cover rounded-xl shadow-2xl absolute bottom-0 rotate-6"
-                alt=""
-              />
-            </div>
-
-            {/* DERECHA */}
-            <div className="space-y-8">
-              {rightColumn.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                  className="bg-[#2c5a86] dark:bg-slate-800 
-                             text-white 
-                             py-6 px-10 
-                             rounded-full 
-                             text-center 
-                             text-lg
-                             font-medium 
-                             shadow-lg 
-                             hover:scale-105 
-                             transition-all duration-300"
-                >
-                  {skill.name}
-                </motion.div>
-              ))}
-            </div>
-
+        {/* CONTENEDOR PRINCIPAL */}
+        <div className="flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          {/* COLUMNA IZQUIERDA */}
+          <div className="lg:col-span-4 flex flex-col justify-center space-y-12">
+            {leftColumn.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-[#114376] dark:bg-slate-800 
+                           text-white py-5 px-10 rounded-full 
+                           text-center text-lg xl:text-xl font-bold
+                           shadow-xl hover:scale-105 transition-all duration-300"
+              >
+                {skill.name}
+              </motion.div>
+            ))}
           </div>
+
+          {/* COLUMNA CENTRAL */}
+          <div className="lg:col-span-4 relative flex flex-col items-center justify-center min-h-[900px]">
+            
+            <motion.img
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: -40 }}
+              src="/pato4.jpg"
+              className="w-52 h-72 xl:w-60 xl:h-80 object-cover rounded-xl shadow-xl z-10 -mb-12 xl:-mb-16"
+              alt="Formación Superior"
+            />
+
+            <motion.img
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 40 }}
+              src="/pato2.jpg"
+              className="w-52 h-72 xl:w-60 xl:h-80 object-cover rounded-xl shadow-2xl z-30 border-4 border-white dark:border-slate-800"
+              alt="Formación Central"
+            />
+
+            <motion.img
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: -40 }}
+              src="/pato3.jpg"
+              className="w-52 h-72 xl:w-60 xl:h-80 object-cover rounded-xl shadow-xl z-20 -mt-12 xl:-mt-16"
+              alt="Formación Inferior"
+            />
+          </div>
+
+          {/* COLUMNA DERECHA */}
+          <div className="lg:col-span-4 flex flex-col justify-center space-y-12">
+            {rightColumn.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-[#114376] dark:bg-slate-800 
+                           text-white py-5 px-10 rounded-full 
+                           text-center text-lg xl:text-xl font-bold
+                           shadow-xl hover:scale-105 transition-all duration-300"
+              >
+                {skill.name}
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

@@ -4,30 +4,31 @@ import {
   ChevronDown,
   Hexagon,
   Monitor,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 
 const experienceData = [
   {
-    image: "/logos/econtainers.png",
+    image: "/econtainers.jpeg",
     company: "ECONTAINERS SOLUTIONS",
     title: "Redes Sociales y Ventas",
+    instagram: "https://www.instagram.com/econtainers_solutions/",
     tasks: ["Rebranding", "Manejo de Redes", "Venta de contenedores"],
   },
   {
-    image: "/logos/innovabyte.png",
+    image: "/InnovaByte.jpeg",
     company: "InnovaByte",
     title: "Branding y Redes Sociales",
+    instagram: "https://www.instagram.com/innovabyte0/",
     tasks: [
       "Manejo de Redes sociales",
       "Comunicación digital inicial",
     ],
   },
   {
-    image: "/logos/365.png",
+    image: "/365.jpeg",
     company: "365",
     title: "Análisis de Mercado B2B",
+    instagram: "https://www.instagram.com/agencia_365/",
     tasks: [
       "Investigación empresarial",
       "Análisis de mercado en Bahía Blanca",
@@ -44,6 +45,14 @@ function ExperienceCard({
 }) {
   const [open, setOpen] = useState(false);
 
+  const handleClick = () => {
+    if (!open) {
+      setOpen(true);
+    } else {
+      window.open(item.instagram, "_blank");
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -52,10 +61,11 @@ function ExperienceCard({
       viewport={{ once: true }}
       className="relative"
     >
-      {/* IMAGE CARD */}
       <div
-        onClick={() => setOpen(!open)}
-        className="relative overflow-hidden rounded-3xl shadow-2xl cursor-pointer group bg-white"
+        onClick={handleClick}
+        className={`relative overflow-hidden rounded-3xl shadow-2xl group bg-white transition-all duration-300 ${
+          open ? "cursor-alias" : "cursor-pointer"
+        }`}
       >
         <img
           src={item.image}
@@ -63,25 +73,25 @@ function ExperienceCard({
           className="w-full h-72 object-contain p-10 transition-transform duration-500 group-hover:scale-105"
         />
 
-        {/* Overlay suave */}
         <div className="absolute inset-0 bg-black/5 group-hover:bg-black/15 transition-colors"></div>
 
-        {/* Company name */}
         <div className="absolute bottom-4 left-4 text-white font-bold tracking-wide text-lg drop-shadow-lg">
           {item.company}
         </div>
 
-        {/* Flecha */}
         <motion.div
+          onClick={(e) => {
+            e.stopPropagation();
+            setOpen(!open);
+          }}
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-full p-2 shadow-md"
+          className="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-full p-2 shadow-md cursor-pointer hover:scale-110 transition"
         >
           <ChevronDown size={20} className="text-[#1a4b84]" />
         </motion.div>
       </div>
 
-      {/* EXPANDABLE CONTENT */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -100,6 +110,10 @@ function ExperienceCard({
                 <li key={i}>• {task}</li>
               ))}
             </ul>
+
+            <p className="mt-4 text-xs text-slate-400 italic">
+              Segundo click en la imagen para ver el Instagram →
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -111,12 +125,16 @@ export default function Proyectos() {
   return (
     <section
       id="proyectos"
-      className="relative py-24 px-6 overflow-hidden bg-[#163863] dark:bg-[#0a192f] transition-colors duration-300 min-h-screen flex flex-col justify-center"
+      className="relative py-24 px-6 overflow-hidden min-h-screen flex flex-col justify-center transition-colors duration-300"
     >
-      {/* === TU BACKGROUND ORIGINAL === */}
-      <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff15_2px,transparent_2px)] bg-[size:20px_20px]"></div>
+      {/* IMAGEN DE FONDO */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[url('/fondo5.jpg')] bg-cover bg-center bg-no-repeat"></div>
+        <div className="absolute inset-0 bg-[#163863]/85 dark:bg-[#0a192f]/90"></div>
+      </div>
 
+      {/* ELEMENTOS DECORATIVOS (sin puntitos) */}
+      <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
         <div className="absolute -left-20 top-20 opacity-10">
           <Hexagon size={300} strokeWidth={0.5} className="text-white" />
         </div>

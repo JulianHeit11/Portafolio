@@ -29,7 +29,7 @@ export default function Contacto() {
       `Nombre: ${formData.name}\nCorreo: ${formData.email}\n\nMensaje:\n${formData.message}`
     );
 
-    window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=TUEMAIL@gmail.com&su=${subject}&body=${body}`;
+    window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=julianheitgc@gmail.com&su=${subject}&body=${body}`;
   };
 
   const handleWhatsApp = () => {
@@ -46,20 +46,18 @@ export default function Contacto() {
   return (
     <section
       id="contacto"
-      className="relative py-32 px-8 overflow-hidden bg-[#eef2f6] dark:bg-[#0a192f] transition-colors duration-500"
+      className="relative py-32 px-8 overflow-hidden min-h-screen flex items-center transition-colors duration-500"
     >
-      {/* Fondo patrón */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 opacity-[0.05] dark:opacity-10 pointer-events-none transition-opacity duration-500"
-        style={{
-          backgroundImage:
-            "radial-gradient(#1a4b84 2.5px, transparent 2.5px)",
-          backgroundSize: "34px 34px",
-        }}
-      />
+      {/* ===== IMAGEN DE FONDO ===== */}
+      <div className="absolute inset-0">
+        {/* Imagen */}
+        <div className="absolute inset-0 bg-[url('/fondo6.jpg')] bg-cover bg-center bg-no-repeat"></div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Overlay elegante */}
+        <div className="absolute inset-0 bg-white/85 dark:bg-[#0a192f]/90"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
 
           {/* IZQUIERDA */}
@@ -79,7 +77,6 @@ export default function Contacto() {
               </p>
             </motion.div>
 
-            {/* BOTÓN WHATSAPP MÁS GRANDE */}
             <motion.button
               onClick={handleWhatsApp}
               initial={{ opacity: 0, y: 20 }}
@@ -92,7 +89,7 @@ export default function Contacto() {
             </motion.button>
           </div>
 
-          {/* DERECHA FORMULARIO */}
+          {/* FORMULARIO */}
           <motion.div
             className="w-full"
             initial={{ opacity: 0, scale: 0.94 }}
