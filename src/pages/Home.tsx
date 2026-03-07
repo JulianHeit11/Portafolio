@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full flex flex-col justify-center overflow-hidden font-sans text-white bg-[#020617]"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden font-sans text-white bg-[#020617]"
     >
       {/* ===== Imagen de Fondo ===== */}
       <div
@@ -13,18 +13,16 @@ export default function Home() {
         aria-hidden="true"
       ></div>
 
-    
       {/* ===== Contenido Principal ===== */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 items-center min-h-screen pt-24 lg:pt-0">
-
-        {/* Columna Izquierda */}
-        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 items-center min-h-screen">
+        
+        {/* Columna Izquierda: Centrada verticalmente respecto a la imagen */}
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left justify-center h-full pt-32 lg:pt-0">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            /* FIX: Ajustamos el tamaño a responsive (text-6xl a 10rem) para evitar el zoom excesivo */
-            className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter leading-[0.85] text-[#F5F6F7] mb-6 uppercase"
+            className="text-6xl md:text-8xl lg:text-[9rem] xl:text-[10rem] font-black tracking-tighter leading-[0.85] text-[#F5F6F7] mb-6 uppercase"
           >
             JULIAN <br /> HEIT
           </motion.h1>
@@ -54,39 +52,22 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Columna Derecha */}
+        {/* Columna Derecha: Imagen pegada al borde inferior */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex justify-end items-end h-full relative mt-12 lg:mt-0"
+          className="flex justify-center lg:justify-end items-end h-full relative self-end"
         >
           <img
             src="/pato1.jpg"
             alt="Julian Heit"
-            /* FIX: Cambiamos scale-125 por un manejo de altura más seguro (max-h) para que no desborde */
-            className="max-h-[60vh] md:max-h-[80vh] lg:max-h-[90vh] w-auto object-contain drop-shadow-2xl dark:drop-shadow-[0_20px_25px_rgba(255,255,255,0.1)]"
+            /* Mantener la altura a la base del contenedor */
+            className="h-[50vh] md:h-[70vh] lg:h-[85vh] xl:h-[90vh] w-auto object-contain drop-shadow-2xl dark:drop-shadow-[0_20px_25px_rgba(255,255,255,0.1)] align-bottom"
           />
         </motion.div>
 
       </div>
     </section>
-  );
-}
-
-/* ===== COMPONENTE HEXAGONAL ===== */
-function HexagonIcon({ icon: Icon, className, delay = 0 }: { icon: any, className: string, delay: number }) {
-  return (
-    <motion.div
-      animate={{ y: [-15, 15, -15] }}
-      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay }}
-      className={`absolute flex items-center justify-center opacity-30 text-[#F5F6F7] ${className}`}
-    >
-      <svg width="140" height="140" viewBox="0 0 120 120" className="absolute">
-        <polygon points="60,5 115,32 115,88 60,115 5,88 5,32" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.6" />
-        <polygon points="60,15 105,40 105,80 60,105 15,80 15,40" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
-      </svg>
-      <Icon size={40} strokeWidth={1.5} />
-    </motion.div>
   );
 }
