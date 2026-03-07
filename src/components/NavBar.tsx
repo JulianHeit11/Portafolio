@@ -1,4 +1,3 @@
-// src/components/Navbar.tsx
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -11,44 +10,23 @@ import {
   Music2,
 } from "lucide-react";
 
-export default function Navbar() {
+// Definimos la interfaz para que TypeScript reconozca las funciones que vienen de App.tsx
+interface NavbarProps {
+  toggleTheme: () => void;
+  darkMode: boolean;
+}
+
+export default function Navbar({ toggleTheme, darkMode }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [dark, setDark] = useState(true);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
+  // Efecto para detectar el scroll y cambiar el estilo de la barra
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    if (savedTheme === "dark" || (!savedTheme && systemDark)) {
-      document.documentElement.classList.add("dark");
-      setDark(true);
-    } else {
-      document.documentElement.classList.remove("dark");
-      setDark(false);
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    setDark((prevDark) => {
-      const newDark = !prevDark;
-      if (newDark) {
-        document.documentElement.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-        localStorage.setItem("theme", "light");
-      }
-      return newDark;
-    });
-  };
 
   const links = [
     { href: "#home", label: "INICIO" },
@@ -91,7 +69,7 @@ export default function Navbar() {
           }
         `}
       >
-        {/* LOGO con punto Amarillo #FFC661 */}
+        {/* LOGO */}
         <a
           href="#home"
           className="text-base md:text-lg font-bold tracking-[0.2em] uppercase text-white"
@@ -123,7 +101,7 @@ export default function Navbar() {
 
         {/* ACTIONS */}
         <div className="flex items-center gap-2 md:gap-3">
-          {/* SOCIAL ICONS DESKTOP con hover Amarillo #FFC661 */}
+          {/* SOCIAL ICONS DESKTOP */}
           <div className="hidden md:flex items-center gap-2 mr-2">
             {socialLinks.map((social, index) => {
               const Icon = social.icon;
@@ -141,7 +119,7 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* THEME BUTTON */}
+          {/* THEME BUTTON - Conectado a App.tsx */}
           <button
             type="button"
             onClick={toggleTheme}
@@ -149,10 +127,10 @@ export default function Navbar() {
           >
             <motion.div
               initial={false}
-              animate={{ rotate: dark ? 180 : 0 }}
+              animate={{ rotate: darkMode ? 180 : 0 }}
               transition={{ duration: 0.4 }}
             >
-              {dark ? <Moon size={16} /> : <Sun size={16} />}
+              {darkMode ? <Moon size={16} /> : <Sun size={16} />}
             </motion.div>
           </button>
 
@@ -193,24 +171,6 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-
-            {/* SOCIAL ICONS MOBILE */}
-            <div className="flex gap-4 pt-3">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-full text-white/60 hover:text-[#FFC661] hover:scale-110 transition-all duration-300"
-                  >
-                    <Icon size={18} />
-                  </a>
-                );
-              })}
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
