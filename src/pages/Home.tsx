@@ -13,15 +13,7 @@ export default function Home() {
         aria-hidden="true"
       ></div>
 
-      {/* ===== Iconos Hexagonales Flotantes ===== */}
-      <div aria-hidden="true" className="absolute inset-0 pointer-events-none max-w-7xl mx-auto overflow-hidden">
-        <HexagonIcon icon={Monitor} className="top-[20%] left-[5%] md:left-[10%]" delay={0} />
-        <HexagonIcon icon={Lightbulb} className="top-[50%] left-[10%] md:left-[15%]" delay={1} />
-        <HexagonIcon icon={Cpu} className="bottom-[15%] left-[5%] md:left-[8%]" delay={2} />
-        <HexagonIcon icon={Network} className="top-[45%] left-[30%] md:left-[35%] opacity-20 scale-75" delay={0.5} />
-        <HexagonIcon icon={PieChart} className="bottom-[20%] left-[25%] md:left-[22%] scale-90" delay={1.5} />
-      </div>
-
+    
       {/* ===== Contenido Principal ===== */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 items-center min-h-screen pt-24 lg:pt-0">
 
