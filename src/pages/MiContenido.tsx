@@ -11,7 +11,7 @@ const socialContent = [
       <img
         src="/yt.jpg"
         alt="YouTube"
-        className="w-10 h-10 object-contain"
+        className="w-8 h-8 md:w-10 md:h-10 object-contain"
       />
     ),
     link: "https://youtube.com/@julianheit",
@@ -25,7 +25,7 @@ const socialContent = [
       <img
         src="/tiktok.jpg"
         alt="TikTok"
-        className="w-10 h-10 object-contain"
+        className="w-8 h-8 md:w-10 md:h-10 object-contain"
       />
     ),
     link: "https://www.tiktok.com/@juli.heit12",
@@ -39,7 +39,7 @@ const socialContent = [
       <img
         src="/instagram.jpg"
         alt="Instagram"
-        className="w-10 h-10 object-contain"
+        className="w-8 h-8 md:w-10 md:h-10 object-contain"
       />
     ),
     link: "https://instagram.com/julianheitgc",
@@ -53,7 +53,7 @@ const socialContent = [
       <img
         src="/facebook.jpg"
         alt="Facebook"
-        className="w-10 h-10 object-contain"
+        className="w-8 h-8 md:w-10 md:h-10 object-contain"
       />
     ),
     link: "https://facebook.com/julianheit",
@@ -63,20 +63,20 @@ const socialContent = [
     id: "linkedin",
     name: "Julian Heit",
     platform: "LinkedIn",
-    icon: <Linkedin size={40} className="text-blue-800" />,
+    icon: <Linkedin className="w-8 h-8 md:w-10 md:h-10 text-blue-800" />,
     link: "https://www.linkedin.com/",
     embed: null,
   },
 ];
 
 export default function MiContenido() {
-  const [active, setActive] = useState<string | null>(null);
+  const [active, setActive] = useState<string | null>("youtube"); // Empezamos con YouTube para que no esté vacío
   const activeItem = socialContent.find((item) => item.id === active);
 
   return (
     <section
       id="contenido"
-      className="relative min-h-screen py-20 px-6 overflow-hidden flex items-center text-white"
+      className="relative min-h-screen py-20 px-4 md:px-6 overflow-hidden flex items-center text-white"
     >
       {/* Imagen de fondo */}
       <div
@@ -85,64 +85,75 @@ export default function MiContenido() {
       />
 
       <div className="max-w-7xl mx-auto relative z-10 w-full">
-<h2 className="font-black text-5xl md:text-7xl tracking-tight leading-[0.9] text-[#F5F6F7] mb-16 uppercase">
-  MI CONTENIDO
-</h2>
+        <h2 className="font-black text-4xl md:text-7xl tracking-tight leading-[0.9] text-[#F5F6F7] mb-12 md:mb-16 uppercase text-center lg:text-left">
+          MI CONTENIDO
+        </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           
-          {/* IZQUIERDA */}
-          <div className="flex flex-col gap-6">
+          {/* IZQUIERDA: BOTONES */}
+          <div className="flex flex-col gap-4 w-full">
             {socialContent.map((item) => (
               <motion.button
                 key={item.id}
-                onClick={() =>
-                  setActive(active === item.id ? null : item.id)
-                }
-                whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-xl w-full"
+                onClick={() => setActive(item.id)}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`flex items-center gap-4 p-4 rounded-2xl shadow-xl w-full transition-all duration-300 border-2 ${
+                  active === item.id 
+                    ? "bg-[#FFC661] border-[#FFC661] translate-x-2" 
+                    : "bg-white border-transparent hover:border-white/50"
+                }`}
               >
-                {item.icon}
-                <span className="text-[#1a4b84] font-bold text-lg">
+                <div className="bg-white p-1 rounded-lg">
+                  {item.icon}
+                </div>
+                <span className={`font-bold text-lg md:text-xl ${
+                  active === item.id ? "text-[#1a4b84]" : "text-[#1a4b84]"
+                }`}>
                   {item.platform}
                 </span>
               </motion.button>
             ))}
           </div>
 
-          {/* DERECHA */}
-          <div className="hidden lg:block relative">
-            <div className="bg-[#fdf6e9] rounded-[40px] p-6 aspect-square shadow-2xl border-8 border-white/20 flex items-center justify-center overflow-hidden">
+          {/* DERECHA: VISUALIZADOR */}
+          <div className="w-full h-full min-h-[400px] md:min-h-[500px]">
+            <div className="bg-[#fdf6e9] rounded-[30px] md:rounded-[40px] p-4 md:p-8 aspect-square lg:aspect-auto lg:h-[600px] shadow-2xl border-4 md:border-8 border-white/20 flex items-center justify-center overflow-hidden">
               <AnimatePresence mode="wait">
                 {activeItem ? (
                   <motion.div
                     key={activeItem.id}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.4 }}
-                    className="w-full h-full flex items-center justify-center"
+                    className="w-full h-full flex flex-col items-center justify-center"
                   >
                     {activeItem.embed ? (
                       <iframe
                         src={activeItem.embed}
-                        className="w-full h-full rounded-2xl"
+                        className="w-full h-full rounded-2xl shadow-inner bg-black"
                         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
                         allowFullScreen
+                        title={activeItem.platform}
                       />
                     ) : (
-                      <div className="bg-white rounded-3xl p-10 text-center shadow-xl max-w-md">
+                      <div className="bg-white rounded-3xl p-6 md:p-10 text-center shadow-xl max-w-sm">
+                        <div className="flex justify-center mb-4">
+                            {activeItem.icon}
+                        </div>
                         <h3 className="text-2xl font-bold text-[#1a4b84] mb-4">
                           {activeItem.platform}
                         </h3>
                         <p className="text-slate-500 mb-6">
-                          Ver publicación completa en la plataforma.
+                          Puedes ver mis publicaciones y actualizaciones diarias directamente en mi perfil.
                         </p>
                         <a
                           href={activeItem.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-block px-8 py-4 rounded-full bg-[#1a4b84] text-white font-bold hover:scale-105 transition-all"
+                          className="inline-block px-8 py-4 rounded-full bg-[#1a4b84] text-white font-bold hover:bg-[#FFC661] hover:text-[#1a4b84] transition-all shadow-lg"
                         >
                           Ir a {activeItem.platform}
                         </a>
@@ -154,9 +165,9 @@ export default function MiContenido() {
                     key="placeholder"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="text-slate-300 font-bold text-xl uppercase"
+                    className="text-[#1a4b84]/40 font-bold text-xl uppercase text-center"
                   >
-                    Seleccioná una red social
+                    Seleccioná una red social para ver el contenido
                   </motion.p>
                 )}
               </AnimatePresence>
