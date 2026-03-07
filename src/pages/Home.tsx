@@ -32,7 +32,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-7xl md:text-[15rem] font-black tracking-tight leading-[0.9] text-[#F5F6F7] mb-6 uppercase"
+            className="text-7xl md:text-[13rem] font-black tracking-tight leading-[0.9] text-[#F5F6F7] mb-6 uppercase"
           >
             JULIAN <br /> HEIT
           </motion.h1>
