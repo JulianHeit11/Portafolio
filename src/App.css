@@ -1,42 +1,74 @@
+/* Restablecemos el box-sizing para evitar que los paddings sumen tamaño extra */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Eliminamos las restricciones de ancho de Vite que causan el efecto de zoom */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
+/* Estilos base para el cuerpo */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* Evita el scroll horizontal accidental */
+  background-color: #f5f6f7;
+  /* Color claro por defecto */
+  color: #1a1a1a;
+  transition: background-color 0.3s ease;
+}
+
+/* --- MODO OSCURO (Dark Mode) --- */
+/* Se activa si el sistema del usuario es oscuro o si añades la clase .dark al body */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #020617;
+    /* El azul muy oscuro de tu diseño */
+    color: #ffffff;
+  }
+}
+
+/* Si usas un switch manual para Dark Mode, esto lo forzará */
+.dark body {
+  background-color: #020617;
+  color: #ffffff;
+}
+
+/* --- UTILIDADES ADICIONALES --- */
+
+/* Mejora de renderizado para logos e imágenes */
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
 
+/* Animación opcional para elementos interactivos */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
+  .logo-spin {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
