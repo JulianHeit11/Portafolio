@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ChevronDown,
-  Hexagon,
-  Monitor,
-} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const experienceData = [
   {
@@ -125,38 +121,23 @@ export default function Proyectos() {
   return (
     <section
       id="proyectos"
-      className="relative py-24 px-6 overflow-hidden min-h-screen flex flex-col justify-center transition-colors duration-300"
+      className="relative py-24 px-6 overflow-hidden min-h-screen flex flex-col justify-center"
     >
       {/* IMAGEN DE FONDO */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/fondo5.jpg')] bg-cover bg-center bg-no-repeat"></div>
-        <div className="absolute inset-0 bg-[#163863]/85 dark:bg-[#0a192f]/90"></div>
-      </div>
-
-      {/* ELEMENTOS DECORATIVOS (sin puntitos) */}
-      <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-        <div className="absolute -left-20 top-20 opacity-10">
-          <Hexagon size={300} strokeWidth={0.5} className="text-white" />
-        </div>
-
-        <div className="absolute left-10 top-1/4 opacity-20">
-          <Monitor size={40} className="text-white/40" />
-        </div>
-
-        <div className="absolute -right-10 bottom-10 opacity-10">
-          <Hexagon size={250} strokeWidth={0.5} className="text-white" />
-        </div>
-      </div>
+      <div
+        className="absolute inset-0 bg-[url('/fondo5.jpg')] bg-cover bg-center bg-no-repeat opacity-100 dark:opacity-40"
+        aria-hidden="true"
+      />
 
       <div className="max-w-7xl mx-auto relative z-10 w-full">
         <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-white font-bold text-4xl md:text-6xl tracking-[0.1em] uppercase"
-          >
-            TRABAJOS - EXPERIENCIAS
-          </motion.h2>
+        <motion.h2
+  initial={{ opacity: 0, y: -20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  className="font-black text-5xl md:text-7xl tracking-tight leading-[0.9] text-[#F5F6F7] uppercase"
+>
+  TRABAJOS - EXPERIENCIAS
+</motion.h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">

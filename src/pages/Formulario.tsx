@@ -46,21 +46,23 @@ export default function Contacto() {
   return (
     <section
       id="contacto"
-      className="relative py-32 px-8 overflow-hidden min-h-screen flex items-center transition-colors duration-500"
+      className="relative py-32 px-8 min-h-screen flex items-center overflow-hidden"
     >
-      {/* ===== IMAGEN DE FONDO ===== */}
-      <div className="absolute inset-0">
-        {/* Imagen */}
-        <div className="absolute inset-0 bg-[url('/fondo6.jpg')] bg-cover bg-center bg-no-repeat"></div>
-
-        {/* Overlay elegante */}
-        <div className="absolute inset-0 bg-white/85 dark:bg-[#0a192f]/90"></div>
-      </div>
+      {/* FONDO */}
+      <div
+        className="
+        absolute inset-0
+        bg-[url('/fondo6.jpg')]
+        bg-cover bg-center bg-no-repeat
+        transition-all duration-700
+        dark:brightness-[0.4] dark:contrast-125 dark:saturate-75
+        "
+      />
 
       <div className="max-w-7xl mx-auto relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
 
-          {/* IZQUIERDA */}
+          {/* TEXTO */}
           <div className="space-y-10 text-center lg:text-left flex flex-col items-center lg:items-start">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
@@ -99,7 +101,7 @@ export default function Contacto() {
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-[#1a4b84] p-12 md:p-16 rounded-[3rem] shadow-2xl space-y-8 relative overflow-hidden"
+              className="bg-[#1a4b84] dark:bg-[#0f2f55] p-12 md:p-16 rounded-[3rem] shadow-2xl space-y-8 relative overflow-hidden transition-colors"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
@@ -140,7 +142,7 @@ export default function Contacto() {
                   type="submit"
                   whileHover={{ scale: 1.06 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-16 py-5 text-lg rounded-full bg-white text-[#1a4b84] font-black uppercase tracking-[0.25em] shadow-xl hover:bg-slate-50 transition-colors focus-visible:ring-4 focus-visible:ring-white/50 flex items-center gap-3 group"
+                  className="px-16 py-5 text-lg rounded-full bg-white text-[#1a4b84] font-black uppercase tracking-[0.25em] shadow-xl hover:bg-slate-50 transition-colors flex items-center gap-3 group"
                 >
                   Enviar
                   <Send
@@ -149,6 +151,7 @@ export default function Contacto() {
                   />
                 </motion.button>
               </div>
+
             </form>
           </motion.div>
 

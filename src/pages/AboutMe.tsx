@@ -16,44 +16,13 @@ export default function AboutMe() {
   return (
     <section
       id="about"
-      // Light: Blanco hueso (#F5F6F7) | Dark: Azul profundo (#00396E)
-      className="relative min-h-screen py-28 px-6 overflow-hidden bg-[#F5F6F7] dark:bg-[#00396E] transition-colors duration-500"
+      className="relative min-h-screen py-28 px-6 overflow-hidden"
     >
-      {/* Imagen de fondo (image_2.png) con ajuste de visibilidad según el modo */}
-      <div 
-        className="absolute inset-0 z-0 bg-[url('/fondo2.jpg')] bg-cover bg-no-repeat bg-center opacity-60 dark:opacity-20 pointer-events-none" 
+      {/* Imagen de fondo */}
+      <div
+        className="absolute inset-0 z-0 bg-[url('/fondo2.jpg')] bg-cover bg-center bg-no-repeat opacity-100 dark:opacity-40 pointer-events-none"
         aria-hidden="true"
       />
-
-      {/* Burbujas decorativas */}
-      <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden z-1">
-        {Array.from({ length: 20 }).map((_, i) => {
-          let top, left, emoji;
-          const genericEmojis = ["💬", "❤️", "📈", "💼", "📢", "📱", "💻"];
-          
-          if (i < 7) { 
-            top = `${Math.random() * 40}%`;
-            left = `${Math.random() * 30}%`;
-            emoji = "❤️";
-          } else {
-            top = `${Math.random() * 100}%`;
-            left = `${Math.random() * 100}%`;
-            emoji = genericEmojis[i % genericEmojis.length];
-          }
-
-          return (
-            <motion.div
-              key={i}
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 5 + i, repeat: Infinity, ease: "easeInOut" }}
-              style={{ top, left }}
-              className="absolute w-12 h-12 bg-white/20 dark:bg-white/5 backdrop-blur-md rounded-2xl flex items-center justify-center text-xl text-[#1a4b84]/20 dark:text-white/10"
-            >
-              {emoji}
-            </motion.div>
-          );
-        })}
-      </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -66,9 +35,8 @@ export default function AboutMe() {
           {/* Imagen de Perfil */}
           <motion.div variants={item} className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-[380px]">
-              {/* Glow que resalta más en Dark Mode con el amarillo #FFC661 */}
               <div className="absolute inset-0 bg-[#1a4b84]/10 dark:bg-[#FFC661]/15 blur-3xl rounded-full"></div>
-              
+
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-2xl border border-white/40 dark:border-white/10">
                 <img
                   src="/pato1.jpg"
@@ -79,13 +47,12 @@ export default function AboutMe() {
             </div>
           </motion.div>
 
-          {/* Texto dinámico */}
+          {/* Texto */}
           <div className="lg:col-span-7 space-y-8 text-slate-700 dark:text-white/90">
             <motion.div variants={item}>
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
                 Perfil Profesional
               </h2>
-              {/* Línea decorativa Amarilla fija */}
               <div className="w-20 h-1 bg-[#FFC661] mt-4"></div>
             </motion.div>
 
@@ -96,8 +63,11 @@ export default function AboutMe() {
               </p>
 
               <p>
-                Mi camino comenzó en la escuela técnica y continuó en la
-                universidad. Ese recorrido me dio una <strong className="text-[#1a4b84] dark:text-[#FFC661]">comprensión real de cómo funciona un negocio desde adentro.</strong>
+                Mi camino comenzó en la escuela técnica y continuó en la universidad. 
+                Ese recorrido me dio una{" "}
+                <strong className="text-[#1a4b84] dark:text-[#FFC661]">
+                  comprensión real de cómo funciona un negocio desde adentro.
+                </strong>
               </p>
 
               <p>
@@ -105,7 +75,7 @@ export default function AboutMe() {
               </p>
 
               <p className="pt-4 text-xl md:text-2xl font-semibold text-slate-900 dark:text-[#FFC661]">
-                No me interesa solo que “se vea bien” — 
+                No me interesa solo que “se vea bien” —
                 <span className="text-[#1a4b84] dark:text-white"> me interesa que funcione.</span>
               </p>
             </motion.div>

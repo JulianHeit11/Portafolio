@@ -23,44 +23,40 @@ function App() {
     if (darkMode) {
       root.classList.add("dark");
       localStorage.setItem("theme", "dark");
-      document.body.style.backgroundColor = "#0a192f";
     } else {
       root.classList.remove("dark");
       localStorage.setItem("theme", "light");
-      document.body.style.backgroundColor = "#eef2f6";
     }
   }, [darkMode]);
 
   return (
-    <div className="bg-[#eef2f6] text-slate-900 dark:bg-[#0a192f] dark:text-white min-h-screen transition-colors duration-500">
-      
+    <div className="min-h-screen bg-[#eef2f6] text-slate-900 dark:bg-[#0a192f] dark:text-white transition-colors duration-500">
+
       <Navbar toggleTheme={toggleTheme} darkMode={darkMode} />
 
       <main className="overflow-x-hidden">
-        
+
         <section id="home">
           <Home />
         </section>
 
-        <section id="about" className="pt-20">
+        <section id="about">
           <AboutMe />
         </section>
 
-              <section id="contenido" className="pt-20">
+        <section id="contenido">
           <MiContenido />
         </section>
 
-          <section id="skills" className="pt-20">
+        <section id="skills">
           <Skill />
         </section>
 
-        <section id="proyectos" className="pt-20">
+        <section id="proyectos">
           <Proyectos />
         </section>
 
-      
-
-        <section id="Formulario" className="pt-20 bg-transparent">
+        <section id="formulario">
           <Formulario />
         </section>
 

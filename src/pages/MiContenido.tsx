@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Linkedin, Hexagon, Globe } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 const socialContent = [
   {
@@ -78,30 +78,16 @@ export default function MiContenido() {
       id="contenido"
       className="relative min-h-screen py-20 px-6 overflow-hidden flex items-center text-white"
     >
-      {/* ===== Imagen de Fondo ===== */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/fondo3.jpg')] bg-cover bg-center bg-no-repeat"></div>
-        <div className="absolute inset-0 bg-[#163863]/85 dark:bg-[#0a192f]/90"></div>
-      </div>
-
-      {/* ===== Elementos decorativos ===== */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff15_2px,transparent_2px)] bg-[size:25px_25px]" />
-        <Globe
-          size={600}
-          className="absolute -right-40 top-1/2 -translate-y-1/2 text-white/10"
-        />
-        <Hexagon
-          size={300}
-          className="absolute left-10 top-20 text-white/5"
-          strokeWidth={1}
-        />
-      </div>
+      {/* Imagen de fondo */}
+      <div
+        className="absolute inset-0 bg-[url('/fondo3.jpg')] bg-cover bg-center bg-no-repeat opacity-100 dark:opacity-40"
+        aria-hidden="true"
+      />
 
       <div className="max-w-7xl mx-auto relative z-10 w-full">
-        <h2 className="font-bold text-5xl mb-16 uppercase">
-          MI CONTENIDO
-        </h2>
+<h2 className="font-black text-5xl md:text-7xl tracking-tight leading-[0.9] text-[#F5F6F7] mb-16 uppercase">
+  MI CONTENIDO
+</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           

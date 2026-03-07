@@ -21,23 +21,13 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative min-h-screen w-full py-20 px-6 lg:px-16 overflow-hidden 
-                 flex items-center transition-colors duration-500"
+      className="relative min-h-screen w-full py-20 px-6 lg:px-16 overflow-hidden flex items-center"
     >
-      {/* ===== IMAGEN DE FONDO ===== */}
-      <div className="absolute inset-0">
-        {/* Imagen */}
-        <div className="absolute inset-0 bg-[url('/fondo4.jpg')] bg-cover bg-center bg-no-repeat"></div>
-
-        {/* Overlay claro / oscuro automático */}
-        <div className="absolute inset-0 bg-white/85 dark:bg-[#0f172a]/90"></div>
-      </div>
-
-      {/* Fondo decorativo blur */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 dark:opacity-10">
-        <div className="absolute top-10 left-10 w-64 h-64 bg-blue-100 dark:bg-slate-800 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-50 dark:bg-slate-900 rounded-full blur-3xl" />
-      </div>
+      {/* IMAGEN DE FONDO */}
+      <div
+        className="absolute inset-0 bg-[url('/fondo4.jpg')] bg-cover bg-center bg-no-repeat opacity-100 dark:opacity-40"
+        aria-hidden="true"
+      />
 
       <div className="w-full max-w-[1800px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
         
@@ -48,7 +38,7 @@ export default function Skills() {
                        font-black text-[10vw] xl:text-[180px]
                        tracking-tighter uppercase leading-[0.8] 
                        [writing-mode:vertical-lr] rotate-180
-                       transition-colors duration-500 select-none"
+                       select-none"
           >
             FORMACIÓN
           </h2>

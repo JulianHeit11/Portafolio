@@ -8,18 +8,10 @@ export default function Home() {
       className="relative min-h-screen flex flex-col justify-center overflow-hidden font-sans text-white"
     >
       {/* ===== Imagen de Fondo ===== */}
-      <div className="absolute inset-0">
-        {/* Imagen */}
-        <div className="absolute inset-0 bg-[url('/fondo1.jpg')] bg-cover bg-center bg-no-repeat"></div>
-        
-        {/* Overlay oscuro */}
-        <div className="absolute inset-0 bg-[#1C4E80]/80 dark:bg-[#00396E]/85"></div>
-      </div>
-
-      {/* ===== Capa de Puntos ===== */}
-      <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(#F5F6F725_2px,transparent_2px)] bg-[size:20px_20px]"></div>
-      </div>
+      <div
+        className="absolute inset-0 bg-[url('/fondo1.jpg')] bg-cover bg-center bg-no-repeat opacity-100 dark:opacity-40"
+        aria-hidden="true"
+      ></div>
 
       {/* ===== Iconos Hexagonales Flotantes ===== */}
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none max-w-7xl mx-auto overflow-hidden">
@@ -32,15 +24,15 @@ export default function Home() {
 
       {/* ===== Contenido Principal ===== */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 items-center min-h-[80vh] pt-24 lg:pt-0">
-        
+
         {/* Columna Izquierda */}
         <div className="flex flex-col items-center text-center">
-          
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-7xl md:text-[11rem] font-black tracking-tight leading-[0.9] text-[#F5F6F7] mb-6 uppercase"
+            className="text-7xl md:text-[15rem] font-black tracking-tight leading-[0.9] text-[#F5F6F7] mb-6 uppercase"
           >
             JULIAN <br /> HEIT
           </motion.h1>
@@ -71,7 +63,7 @@ export default function Home() {
         </div>
 
         {/* Columna Derecha */}
-        <motion.div
+<motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -80,7 +72,11 @@ export default function Home() {
           <img
             src="/pato1.jpg"
             alt="Julian Heit"
-            className="max-h-[60vh] lg:max-h-[80vh] object-contain drop-shadow-2xl"
+            /* 1. scale-110 lg:scale-125: Agranda la imagen visualmente un 10% en móvil y 25% en escritorio.
+              2. origin-bottom-right: Hace que crezca hacia arriba y hacia la izquierda, manteniéndose anclada a la esquina.
+              3. dark:... : Se añade el dark mode solicitado para la sombra.
+            */
+            className="max-h-[80vh] object-contain drop-shadow-2xl dark:drop-shadow-[0_20px_25px_rgba(255,255,255,0.05)] scale-110 lg:scale-125 origin-bottom-right"
           />
         </motion.div>
 
