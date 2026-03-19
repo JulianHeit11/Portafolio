@@ -8,56 +8,40 @@ const socialContent = [
     name: "Julian Heit",
     platform: "YouTube",
     icon: (
-      <img
-        src="/yt.jpg"
-        alt="YouTube"
-        className="w-8 h-8 md:w-10 md:h-10 object-contain"
-      />
+      <img src="/yt.jpg" alt="YouTube" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
     ),
     link: "https://youtube.com/@julianheit",
-    embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    embed: null, // ❌ SACAR EMBED
   },
   {
     id: "tiktok",
     name: "julian.heit12",
     platform: "TikTok",
     icon: (
-      <img
-        src="/tiktok.jpg"
-        alt="TikTok"
-        className="w-8 h-8 md:w-10 md:h-10 object-contain"
-      />
+      <img src="/tiktok.jpg" alt="TikTok" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
     ),
     link: "https://www.tiktok.com/@juli.heit12",
-    embed: "https://www.tiktok.com/embed/v2/7592603030600666369",
+    embed: null, // ❌ SACAR EMBED
   },
   {
     id: "instagram",
     name: "julianheitgc",
     platform: "Instagram",
     icon: (
-      <img
-        src="/instagram.jpg"
-        alt="Instagram"
-        className="w-8 h-8 md:w-10 md:h-10 object-contain"
-      />
+      <img src="/instagram.jpg" alt="Instagram" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
     ),
     link: "https://instagram.com/julianheitgc",
-    embed: "https://www.instagram.com/reel/DQnLeC4CWEE/embed",
+    embed: null, // ❌ SACAR EMBED
   },
   {
     id: "facebook",
     name: "Julian Heit",
     platform: "Facebook",
     icon: (
-      <img
-        src="/facebook.jpg"
-        alt="Facebook"
-        className="w-8 h-8 md:w-10 md:h-10 object-contain"
-      />
+      <img src="/facebook.jpg" alt="Facebook" className="w-8 h-8 md:w-10 md:h-10 object-contain" />
     ),
     link: "https://facebook.com/julianheit",
-    embed: "",
+    embed: null,
   },
   {
     id: "linkedin",
