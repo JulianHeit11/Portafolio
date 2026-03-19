@@ -70,7 +70,7 @@ export default function MiContenido() {
 
       <div className="max-w-7xl mx-auto relative z-10 w-full">
         <h2 className="font-black text-4xl md:text-7xl tracking-tight leading-[0.9] text-[#F5F6F7] mb-12 md:mb-16 uppercase text-center lg:text-left">
-          MI CONTENIDO
+          MIS REDES 
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
